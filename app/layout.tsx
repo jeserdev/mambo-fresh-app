@@ -5,7 +5,6 @@ import Providers from '@/components/Providers'
 import DrawerButton from '@/components/DrawerButton'
 import Sidebar from '@/components/Sidebar'
 import Header from '@/components/header/Header1'
-import Link from 'next/link'
 import MenuFooter from '@/components/footer/footer'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={inter.className}>
         <Providers>
           <div className="drawer drawer-mobile">

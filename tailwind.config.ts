@@ -18,10 +18,10 @@ const config: Config = {
           },
         },
         dark: {
-          ...require('daisyui/src/theming/themes')['dark'],
-          primary: '#fbbf24',
+          ...require('daisyui/src/theming/themes')['retro'],
+          primary: '#ED7400',
           '.toaster-con': {
-            'background-color': 'black',
+            'background-color': '#024936',
             color: 'white',
           },
         },

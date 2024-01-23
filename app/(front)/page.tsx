@@ -58,18 +58,24 @@ export default async function Home() {
        */}
 
       <h2 className="text-2xl py-2">Productos recientes</h2>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
         {latestProducts.map((product: any) => (
           <ProductItem key={product.slug} product={convertDocToObj(product)} />
         ))}
       </div>
 
       <h2 className="text-2xl py-2">Productos Destacados</h2>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
         {featuredProducts.map((product: any) => (
           <ProductItem key={product._id} product={convertDocToObj(product)} />
         ))}
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   )
 }

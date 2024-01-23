@@ -2,7 +2,6 @@
 import useCartService from '@/lib/hooks/useCartStore'
 import useLayoutService from '@/lib/hooks/useLayout'
 import { signIn, signOut, useSession } from 'next-auth/react'
-
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { SearchBox } from './SearchBox'

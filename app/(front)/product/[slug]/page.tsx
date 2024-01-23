@@ -78,8 +78,8 @@ export default async function ProductDetails({
         <br />
 
         <div>
-          <div className="card  bg-base-300 shadow-xl mt-3 md:mt-0">
-            <div className="card-body">
+          <div className="card rounded-md bg-base-300 shadow-xl mt-3 md:mt-0">
+            <div className="p-2 rounded-md">
               <div className="mb-2 flex justify-between">
                 <div>Precio por caja</div>
                 <div>€{product.price}</div>

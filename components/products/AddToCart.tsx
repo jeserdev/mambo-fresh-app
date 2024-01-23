@@ -28,7 +28,7 @@ export default function AddToCart({ item }: { item: OrderItem }) {
     </div>
   ) : (
     <button
-      className="btn btn-primary w-full"
+      className="btn w-full bg-[#ED7400] text-[#F2E8D1] rounded-full border-none"
       type="button"
       onClick={addToCartHandler}
     >
