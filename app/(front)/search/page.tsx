@@ -2,20 +2,21 @@ import ProductItem from '@/components/products/ProductItem'
 import { Rating } from '@/components/products/Rating'
 import productServices from '@/lib/services/productService'
 import Link from 'next/link'
+import { SearchBox } from '@/components/header/SearchBox'
 
 const sortOrders = ['newest', 'lowest', 'highest', 'rating']
 const prices = [
   {
-    name: '$1 to $50',
-    value: '1-50',
+    name: '$1 to $5',
+    value: '1-5',
   },
   {
-    name: '$51 to $200',
-    value: '51-200',
+    name: '$5 to $20',
+    value: '5-20',
   },
   {
-    name: '$201 to $1000',
-    value: '201-1000',
+    name: '$20 to $100',
+    value: '20-100',
   },
 ]
 
@@ -101,10 +102,11 @@ export default async function SearchPage({
     page,
     sort,
   })
+
   return (
     <div className="grid md:grid-cols-5 md:gap-5">
-      <div>
-        <div className="text-xl pt-3">Department</div>
+      <div className="filters hidden">
+        <div className="text-xl pt-3">Categorías</div>
         <div>
           <ul>
             <li>
@@ -114,7 +116,7 @@ export default async function SearchPage({
                 }`}
                 href={getFilterUrl({ c: 'all' })}
               >
-                Any
+                Todas
               </Link>
             </li>
             {categories.map((c: string) => (
@@ -132,7 +134,7 @@ export default async function SearchPage({
           </ul>
         </div>
         <div>
-          <div className="text-xl pt-3">Price</div>
+          <div className="text-xl pt-3">Precio</div>
           <ul>
             <li>
               <Link
@@ -141,7 +143,7 @@ export default async function SearchPage({
                 }`}
                 href={getFilterUrl({ p: 'all' })}
               >
-                Any
+                Todos
               </Link>
             </li>
             {prices.map((p) => (
@@ -159,7 +161,7 @@ export default async function SearchPage({
           </ul>
         </div>
         <div>
-          <div className="text-xl pt-3">Customer Review</div>
+          <div className="text-xl pt-3">Valoraciones</div>
           <ul>
             <li>
               <Link
@@ -168,7 +170,7 @@ export default async function SearchPage({
                   'all' === rating && 'link-primary'
                 }`}
               >
-                Any
+                Todas
               </Link>
             </li>
             {ratings.map((r) => (
@@ -187,9 +189,14 @@ export default async function SearchPage({
         </div>
       </div>
       <div className="md:col-span-4">
+        <br />
+        <br />
+        <div className="flex flex-wrap w-full overflow-x-hidden gap-2">
+          <SearchBox />
+        </div>
         <div className="flex items-center justify-between  py-4">
           <div className="flex items-center">
-            {products.length === 0 ? 'No' : countProducts} Results
+            {products.length === 0 ? 'No' : countProducts} Resultados
             {q !== 'all' && q !== '' && ' : ' + q}
             {category !== 'all' && ' : ' + category}
             {price !== 'all' && ' : Price ' + price}
@@ -200,11 +207,11 @@ export default async function SearchPage({
             rating !== 'all' ||
             price !== 'all' ? (
               <Link className="btn btn-sm btn-ghost" href="/search">
-                Clear
+                restablecer filtros
               </Link>
             ) : null}
           </div>
-          <div>
+          <div className="hidden">
             Sort by{' '}
             {sortOrders.map((s) => (
               <Link
@@ -221,8 +228,8 @@ export default async function SearchPage({
         </div>
 
         <div>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3  ">
-            {products.map((product) => (
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3  ">
+            {products.map((product: any) => (
               <ProductItem key={product.slug} product={product} />
             ))}
           </div>
@@ -242,6 +249,8 @@ export default async function SearchPage({
           </div>
         </div>
       </div>
+      <br />
+      <br />
     </div>
   )
 }

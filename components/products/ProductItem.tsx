@@ -12,9 +12,9 @@ export default function ProductItem({ product }: { product: Product }) {
           <Image
             src={product.image}
             alt={product.name}
-            width={300}
-            height={300}
-            className="object-cover h-64 w-full"
+            width={200}
+            height={200}
+            className="object-cover h-40 w-full"
           />
         </Link>
       </figure>
@@ -22,10 +22,12 @@ export default function ProductItem({ product }: { product: Product }) {
         <Link href={`/product/${product.slug}`}>
           <h2 className="card-title font-normal">{product.name}</h2>
         </Link>
+        {/** 
         <Rating value={product.rating} caption={`(${product.numReviews})`} />
+*/}
         <p className="mb-2">{product.brand}</p>
         <div className="card-actions flex items-center justify-between">
-          <span className="text-2xl">${product.price}</span>
+          <span className="text-2xl">€{product.price}</span>
         </div>
       </div>
     </div>

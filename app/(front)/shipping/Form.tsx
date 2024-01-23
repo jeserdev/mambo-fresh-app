@@ -72,13 +72,13 @@ const Form = () => {
       <CheckoutSteps current={1} />
       <div className="max-w-sm mx-auto card bg-base-300 my-4">
         <div className="card-body">
-          <h1 className="card-title">Shipping Address</h1>
+          <h1 className="card-title">Datos de envio</h1>
           <form onSubmit={handleSubmit(formSubmit)}>
-            <FormInput name="Full Name" id="fullName" required />
-            <FormInput name="Address" id="address" required />
-            <FormInput name="City" id="city" required />
-            <FormInput name="Postal Code" id="postalCode" required />
-            <FormInput name="Country" id="country" required />
+            <FormInput name="Nombre" id="fullName" required />
+            <FormInput name="Dirección" id="address" required />
+            <FormInput name="Ciudad" id="city" required />
+            <FormInput name="Código Postal Code" id="postalCode" required />
+            <FormInput name="País" id="country" required />
             <div className="my-2">
               <button
                 type="submit"
@@ -88,11 +88,13 @@ const Form = () => {
                 {isSubmitting && (
                   <span className="loading loading-spinner"></span>
                 )}
-                Next
+                Continuar
               </button>
             </div>
           </form>
         </div>
+        <br />
+        <br /><br />
       </div>
     </div>
   )

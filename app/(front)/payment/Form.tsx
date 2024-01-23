@@ -18,7 +18,7 @@ const Form = () => {
     if (!shippingAddress.address) {
       return router.push('/shipping')
     }
-    setSelectedPaymentMethod(paymentMethod || 'PayPal')
+    setSelectedPaymentMethod(paymentMethod || 'Pagar al recibir')
   }, [paymentMethod, router, shippingAddress.address])
 
   return (
@@ -26,9 +26,9 @@ const Form = () => {
       <CheckoutSteps current={2} />
       <div className="max-w-sm mx-auto card bg-base-300 my-4">
         <div className="card-body">
-          <h1 className="card-title">Payment Method</h1>
+          <h1 className="card-title">Método de pago</h1>
           <form onSubmit={handleSubmit}>
-            {['PayPal', 'Stripe', 'CashOnDelivery'].map((payment) => (
+            {['Pagar al recibir'].map((payment) => (
               <div key={payment}>
                 <label className="label cursor-pointer">
                   <span className="label-text">{payment}</span>
@@ -45,7 +45,7 @@ const Form = () => {
             ))}
             <div className="my-2">
               <button type="submit" className="btn btn-primary w-full">
-                Next
+                Siguiente
               </button>
             </div>
             <div className="my-2">
@@ -54,7 +54,7 @@ const Form = () => {
                 className="btn w-full my-2"
                 onClick={() => router.back()}
               >
-                Back
+                Regresar
               </button>
             </div>
           </form>

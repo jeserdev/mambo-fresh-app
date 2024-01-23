@@ -78,6 +78,7 @@ export default function Products() {
               <th>count in stock</th>
               <th>rating</th>
               <th>actions</th>
+              <th>Destacado</th>
             </tr>
           </thead>
           <tbody>
@@ -105,6 +106,14 @@ export default function Products() {
                   >
                     Delete
                   </button>
+                </td>
+
+                <td>
+                  {product.isFeatured ? (
+                    <span className="text-green-500">Destacado</span> // o un ícono de estrella, por ejemplo
+                  ) : (
+                    <span className="text-gray-500">No destacado</span>
+                  )}
                 </td>
               </tr>
             ))}

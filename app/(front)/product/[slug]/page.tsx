@@ -31,12 +31,11 @@ export default async function ProductDetails({
   }
   return (
     <>
-      <div className="my-2">
-        <Link href="/">back to products</Link>
-      </div>
       <div className="grid md:grid-cols-4 md:gap-3">
         <div className="md:col-span-2">
+          <br />
           <Image
+            className="rounded-md"
             src={product.image}
             alt={product.name}
             width={640}
@@ -53,30 +52,40 @@ export default async function ProductDetails({
             <li>
               <h1 className="text-xl">{product.name}</h1>
             </li>
+            {/*
             <li>
               <Rating
                 value={product.rating}
                 caption={`${product.numReviews} ratings`}
               />
             </li>
+
+            */}
             <li> {product.brand}</li>
             <li>
               <div className="divider"></div>
             </li>
             <li>
-              Description: <p>{product.description}</p>
+              Origen: <p>{product.description}</p>
             </li>
           </ul>
         </div>
+
+        <br />
+        <div className="btn btn-outline btn-warning">
+          <Link href="/">Regresar a productos</Link>
+        </div>
+        <br />
+
         <div>
           <div className="card  bg-base-300 shadow-xl mt-3 md:mt-0">
             <div className="card-body">
               <div className="mb-2 flex justify-between">
-                <div>Price</div>
-                <div>${product.price}</div>
+                <div>Precio por caja</div>
+                <div>€{product.price}</div>
               </div>
               <div className="mb-2 flex justify-between">
-                <div>Status</div>
+                <div>Disponibilidad</div>
                 <div>
                   {product.countInStock > 0 ? 'In stock' : 'Unavailable'}
                 </div>
@@ -97,6 +106,11 @@ export default async function ProductDetails({
           </div>
         </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   )
 }

@@ -84,7 +84,7 @@ export default function OrderDetails({
         <div className="md:col-span-3">
           <div className="card bg-base-300">
             <div className="card-body">
-              <h2 className="card-title">Shipping Address</h2>
+              <h2 className="card-title">Datos de entrega</h2>
               <p>{shippingAddress.fullName}</p>
               <p>
                 {shippingAddress.address}, {shippingAddress.city},{' '}
@@ -93,32 +93,32 @@ export default function OrderDetails({
               {isDelivered ? (
                 <div className="text-success">Delivered at {deliveredAt}</div>
               ) : (
-                <div className="text-error">Not Delivered</div>
+                <div className="text-success">En proceso de envio</div>
               )}
             </div>
           </div>
 
           <div className="card bg-base-300 mt-4">
             <div className="card-body">
-              <h2 className="card-title">Payment Method</h2>
+              <h2 className="card-title">Método de pago</h2>
               <p>{paymentMethod}</p>
               {isPaid ? (
                 <div className="text-success">Paid at {paidAt}</div>
               ) : (
-                <div className="text-error">Not Paid</div>
+                <div className="text-success">Esperando recibir el pago</div>
               )}
             </div>
           </div>
 
           <div className="card bg-base-300 mt-4">
             <div className="card-body">
-              <h2 className="card-title">Items</h2>
+              <h2 className="card-title">Productos</h2>
               <table className="table">
                 <thead>
                   <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
+                    <th>Productos</th>
+                    <th>Cant</th>
+                    <th>Precio</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -141,7 +141,7 @@ export default function OrderDetails({
                         </Link>
                       </td>
                       <td>{item.qty}</td>
-                      <td>${item.price}</td>
+                      <td>€{item.price}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -153,30 +153,30 @@ export default function OrderDetails({
         <div>
           <div className="card bg-base-300">
             <div className="card-body">
-              <h2 className="card-title">Order Summary</h2>
+              <h2 className="card-title">Detalle de orden</h2>
               <ul>
                 <li>
                   <div className="mb-2 flex justify-between">
-                    <div>Items</div>
-                    <div>${itemsPrice}</div>
+                    <div>Cajas</div>
+                    <div>€{itemsPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className="mb-2 flex justify-between">
-                    <div>Tax</div>
-                    <div>${taxPrice}</div>
+                    <div>Impuestos</div>
+                    <div>€{taxPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className="mb-2 flex justify-between">
-                    <div>Shipping</div>
-                    <div>${shippingPrice}</div>
+                    <div>Envio</div>
+                    <div>€{shippingPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Total</div>
-                    <div>${totalPrice}</div>
+                    <div>€{totalPrice}</div>
                   </div>
                 </li>
 
@@ -202,7 +202,7 @@ export default function OrderDetails({
                       {isDelivering && (
                         <span className="loading loading-spinner"></span>
                       )}
-                      Mark as delivered
+                      Marcar como entregado
                     </button>
                   </li>
                 )}

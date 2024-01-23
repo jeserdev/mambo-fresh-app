@@ -19,87 +19,98 @@ export default function CartDetails() {
 
   return (
     <>
-      <h1 className="py-4 text-2xl">Shopping Cart</h1>
+      <div className="h-svh">
+        <br />
+        <h1 className="h-full py-4 text-2xl">Mi pedido</h1>
 
-      {items.length === 0 ? (
-        <div>
-          Cart is empty. <Link href="/">Go shopping</Link>
-        </div>
-      ) : (
-        <div className="grid md:grid-cols-4 md:gap-5">
-          <div className="overflow-x-auto md:col-span-3">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {items.map((item) => (
-                  <tr key={item.slug}>
-                    <td>
-                      <Link
-                        href={`/product/${item.slug}`}
-                        className="flex items-center"
-                      >
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          width={50}
-                          height={50}
-                        ></Image>
-                        <span className="px-2">{item.name}</span>
-                      </Link>
-                    </td>
-                    <td>
-                      <button
-                        className="btn"
-                        type="button"
-                        onClick={() => decrease(item)}
-                      >
-                        -
-                      </button>
-                      <span className="px-2">{item.qty}</span>
-                      <button
-                        className="btn"
-                        type="button"
-                        onClick={() => increase(item)}
-                      >
-                        +
-                      </button>
-                    </td>
-                    <td>${item.price}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {items.length === 0 ? (
+          <div className="h-full">
+            Tu pedido esta vacio. <Link href="/">Ver productos</Link>
           </div>
-          <div>
-            <div className="card bg-base-300">
-              <div className="card-body">
-                <ul>
-                  <li>
-                    <div className="pb-3 text-xl">
-                      Subtotal ({items.reduce((a, c) => a + c.qty, 0)}) : $
-                      {itemsPrice}
-                    </div>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => router.push('/shipping')}
-                      className="btn btn-primary w-full"
-                    >
-                      Proceed to Checkout
-                    </button>
-                  </li>
-                </ul>
+        ) : (
+          <div className="grid h-full md:grid-cols-4 md:gap-5">
+            <div className="overflow-x-auto md:col-span-3">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Productos</th>
+                    <th>Cantidad en cajas</th>
+                    <th>Precio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {items.map((item) => (
+                    <tr key={item.slug}>
+                      <td>
+                        <Link
+                          href={`/product/${item.slug}`}
+                          className="flex items-center"
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            width={50}
+                            height={50}
+                          ></Image>
+                          <span className="px-2">{item.name}</span>
+                        </Link>
+                      </td>
+                      <td>
+                        <button
+                          className="btn pl-2.5 pr-2.5n"
+                          type="button"
+                          style={{ maxHeight: '30px', maxWidth: '30px' }}
+                          onClick={() => decrease(item)}
+                        >
+                          -
+                        </button>
+                        <span className="px-2">{item.qty}</span>
+                        <button
+                          className="btn pl-2.5 pr-2.5"
+                          type="button"
+                          style={{ maxHeight: '30px', maxWidth: '30px' }}
+                          onClick={() => increase(item)}
+                        >
+                          +
+                        </button>
+                      </td>
+                      <td>€{item.price}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <div className="card bg-base-300">
+                <div className="card-body">
+                  <ul>
+                    <li>
+                      <div className="pb-3 text-xl">
+                        Valor del pedido ({items.reduce((a, c) => a + c.qty, 0)}
+                        ) : €{itemsPrice}
+                      </div>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => router.push('/shipping')}
+                        className="btn btn-primary w-full"
+                      >
+                        Procesar Pedido
+                      </button>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   )
 }

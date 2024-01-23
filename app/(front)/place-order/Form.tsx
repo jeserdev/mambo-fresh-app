@@ -74,7 +74,7 @@ const Form = () => {
         <div className="overflow-x-auto md:col-span-3">
           <div className="card bg-base-300">
             <div className="card-body">
-              <h2 className="card-title">Shipping Address</h2>
+              <h2 className="card-title">Datos de Envio</h2>
               <p>{shippingAddress.fullName}</p>
               <p>
                 {shippingAddress.address}, {shippingAddress.city},{' '}
@@ -82,7 +82,7 @@ const Form = () => {
               </p>
               <div>
                 <Link className="btn" href="/shipping">
-                  Edit
+                  Editar
                 </Link>
               </div>
             </div>
@@ -90,11 +90,11 @@ const Form = () => {
 
           <div className="card bg-base-300 mt-4">
             <div className="card-body">
-              <h2 className="card-title">Payment Method</h2>
+              <h2 className="card-title">Método de pago</h2>
               <p>{paymentMethod}</p>
               <div>
                 <Link className="btn" href="/payment">
-                  Edit
+                  Editar
                 </Link>
               </div>
             </div>
@@ -102,13 +102,13 @@ const Form = () => {
 
           <div className="card bg-base-300 mt-4">
             <div className="card-body">
-              <h2 className="card-title">Items</h2>
+              <h2 className="card-title">Pedido</h2>
               <table className="table">
                 <thead>
                   <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
+                    <th>Productos</th>
+                    <th>Cant.</th>
+                    <th>precio</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -133,47 +133,48 @@ const Form = () => {
                       <td>
                         <span>{item.qty}</span>
                       </td>
-                      <td>${item.price}</td>
+                      <td>€{item.price}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
               <div>
                 <Link className="btn" href="/cart">
-                  Edit
+                  Editar
                 </Link>
               </div>
             </div>
           </div>
         </div>
+        <br />
 
         <div>
           <div className="card bg-base-300">
             <div className="card-body">
-              <h2 className="card-title">Order Summary</h2>
+              <h2 className="card-title">Detalles de pago</h2>
               <ul className="space-y-3">
                 <li>
                   <div className=" flex justify-between">
-                    <div>Items</div>
-                    <div>${itemsPrice}</div>
+                    <div>Productos</div>
+                    <div>€{itemsPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className=" flex justify-between">
-                    <div>Tax</div>
-                    <div>${taxPrice}</div>
+                    <div>Impuestos</div>
+                    <div>€{taxPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className=" flex justify-between">
-                    <div>Shipping</div>
-                    <div>${shippingPrice}</div>
+                    <div>Envio</div>
+                    <div>€{shippingPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className=" flex justify-between">
                     <div>Total</div>
-                    <div>${totalPrice}</div>
+                    <div>€{totalPrice}</div>
                   </div>
                 </li>
 
@@ -186,7 +187,7 @@ const Form = () => {
                     {isPlacing && (
                       <span className="loading loading-spinner"></span>
                     )}
-                    Place Order
+                    Finalizar pedido
                   </button>
                 </li>
               </ul>
@@ -194,6 +195,10 @@ const Form = () => {
           </div>
         </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   )
 }

@@ -29,3 +29,20 @@ body {
 .btn {
   text-transform: none;
 }
+
+.card-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 12px;
+  gap: 0.5rem;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem /* 8px */;
+  font-size: 1rem /* 20px */;
+  line-height: 1rem /* 28px */;
+  font-weight: 600;
+}

@@ -120,53 +120,53 @@ const Dashboard = () => {
         <div className="stat">
           <div className="stat-title">Sales</div>
           <div className="stat-value text-primary">
-            ${formatNumber(summary.ordersPrice)}
+            €{Number(summary.ordersPrice).toFixed(1)}
           </div>
           <div className="stat-desc">
-            <Link href="/admin/orders">View sales</Link>
+            <Link href="/admin/orders">Ver Ventas</Link>
           </div>
         </div>
         <div className="stat">
-          <div className="stat-title"> Orders</div>
+          <div className="stat-title"> Pedidos</div>
           <div className="stat-value text-primary">{summary.ordersCount}</div>
           <div className="stat-desc">
-            <Link href="/admin/orders">View orders</Link>
+            <Link href="/admin/orders">Ver pedidos</Link>
           </div>
         </div>
         <div className="stat">
-          <div className="stat-title">Products</div>
+          <div className="stat-title">Productos</div>
           <div className="stat-value text-primary">{summary.productsCount}</div>
           <div className="stat-desc">
-            <Link href="/admin/products">View products</Link>
+            <Link href="/admin/products">Ver productos</Link>
           </div>
         </div>
         <div className="stat">
-          <div className="stat-title">Users</div>
+          <div className="stat-title">Usuarios</div>
           <div className="stat-value text-primary">{summary.usersCount}</div>
           <div className="stat-desc">
-            <Link href="/admin/users">View users</Link>
+            <Link href="/admin/users">Ver usuarios</Link>
           </div>
         </div>
       </div>
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <h2 className="text-xl py-2">Sales Report</h2>
+          <h2 className="text-xl py-2">Reporte de ventas</h2>
           <Line data={salesData} />
         </div>
         <div>
-          <h2 className="text-xl py-2">Orders Report</h2>
+          <h2 className="text-xl py-2">Reporte de ordenes</h2>
           <Line data={ordersData} />
         </div>
       </div>
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <h2 className="text-xl py-2">Products Report</h2>
+          <h2 className="text-xl py-2">Reporte de Productos</h2>
           <div className="flex items-center justify-center h-80 w-96 ">
             <Doughnut data={productsData} />
           </div>
         </div>
         <div>
-          <h2 className="text-xl py-2">Users Report</h2>
+          <h2 className="text-xl py-2">Reporte de usuarios</h2>
           <Bar data={usersData} />
         </div>
       </div>

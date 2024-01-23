@@ -14,24 +14,14 @@ export const SearchBox = () => {
 
   return (
     <form action="/search" method="GET">
-      <div className="join">
-        <select
-          name="category"
-          defaultValue={category}
-          className="join-item select select-bordered "
-        >
-          <option value="all">All</option>
-          {categories.map((c: string) => (
-            <option key={c}>{c}</option>
-          ))}
-        </select>
-        <input
-          className="join-item input input-bordered  w-48"
-          placeholder="Search"
+      <div className="flex flex-wrap w-full overflow-x-hidden gap-2">
+          <input
+          className="flex-1 input input-bordered w-48 min-w-[100px]"
+          placeholder="producto.."
           defaultValue={q}
           name="q"
         />
-        <button className="join-item btn">Search</button>
+        <button className="btn">Buscar</button>
       </div>
     </form>
   )

@@ -7,7 +7,7 @@ export const GET = auth(async (...args: any) => {
   if (!req.auth || !req.auth.user?.isAdmin) {
     return Response.json(
       { message: 'unauthorized' },
-      {
+      { 
         status: 401,
       }
     )
@@ -45,6 +45,7 @@ export const PUT = auth(async (...args: any) => {
     brand,
     countInStock,
     description,
+    isFeatured,
   } = await req.json()
 
   try {
@@ -60,6 +61,7 @@ export const PUT = auth(async (...args: any) => {
       product.brand = brand
       product.countInStock = countInStock
       product.description = description
+      product.isFeatured = isFeatured
 
       const updatedProduct = await product.save()
       return Response.json(updatedProduct)

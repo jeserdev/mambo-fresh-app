@@ -32,7 +32,7 @@ export default function AddToCart({ item }: { item: OrderItem }) {
       type="button"
       onClick={addToCartHandler}
     >
-      Add to cart
+      Agregar al pedido
     </button>
   )
 }

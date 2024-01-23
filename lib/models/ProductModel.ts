@@ -30,6 +30,7 @@ export type Product = {
   name: string
   slug: string
   image: string
+  isFeatured: Boolean
   banner?: string
   price: number
   brand: string

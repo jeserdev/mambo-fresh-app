@@ -5,11 +5,13 @@ import Providers from '@/components/Providers'
 import DrawerButton from '@/components/DrawerButton'
 import Sidebar from '@/components/Sidebar'
 import Header from '@/components/header/Header1'
+import Link from 'next/link'
+import MenuFooter from '@/components/footer/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Next Amazona V2',
+  title: 'Mambo App',
   description: 'Modern ECommerce Website',
 }
 
@@ -22,25 +24,26 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <div className="drawer">
+          <div className="drawer drawer-mobile">
             <DrawerButton />
-            <div className="drawer-content">
-              <div className="min-h-screen flex flex-col">
+            <div className="drawer-content flex flex-col">
+              {/* Contenido principal */}
+              <div className="flex-1">
                 <Header />
                 {children}
-                <footer className="footer footer-center p-4 bg-base-300 text-base-content">
-                  <p>
-                    Copyright © 2023 - All right reserved by Next Amazona V2
-                  </p>
-                </footer>
               </div>
+
+              {/* Footer fijo */}
+              <footer className="footer footer-center p-4 bg-base-300 text-base-content fixed bottom-0 w-full">
+                {/* Contenido del footer */}
+                <div className="navbar justify-center bg-base-300">
+                  <MenuFooter />
+                </div>
+              </footer>
             </div>
+
             <div className="drawer-side">
-              <label
-                htmlFor="my-drawer"
-                aria-label="close sidebar"
-                className="drawer-overlay"
-              ></label>
+              <label htmlFor="my-drawer" className="drawer-overlay"></label>
               <Sidebar />
             </div>
           </div>

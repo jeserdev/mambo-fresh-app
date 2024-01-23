@@ -6,13 +6,15 @@ export const revalidate = 3600
 
 const getLatest = cache(async () => {
   await dbConnect()
-  const products = await ProductModel.find({}).sort({ _id: -1 }).limit(6).lean()
+  const products = await ProductModel.find({}).sort({ _id: -1 }).limit(4).lean()
   return products as Product[]
 })
 
 const getFeatured = cache(async () => {
   await dbConnect()
-  const products = await ProductModel.find({ isFeatured: true }).limit(3).lean()
+  const products = await ProductModel.find({ isFeatured: true })
+    .limit(100)
+    .lean()
   return products as Product[]
 })
 
@@ -22,7 +24,7 @@ const getBySlug = cache(async (slug: string) => {
   return product as Product
 })
 
-const PAGE_SIZE = 3
+const PAGE_SIZE = 10
 const getByQuery = cache(
   async ({
     q,

@@ -7,7 +7,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: process.env.NEXT_PUBLIC_APP_NAME || 'Next Amazona V2',
+  title: process.env.NEXT_PUBLIC_APP_NAME || 'Mambo App',
   description:
     process.env.NEXT_PUBLIC_APP_DESC ||
     'Nextjs, Server components, Next auth, daisyui, zustand',
@@ -18,8 +18,9 @@ export default async function Home() {
   const latestProducts = await productService.getLatest()
   return (
     <>
+      {/**
       <div className="w-full carousel rounded-box mt-4">
-        {featuredProducts.map((product, index) => (
+        {featuredProducts.map((product: any, index: any) => (
           <div
             key={product._id}
             id={`slide-${index}`}
@@ -53,10 +54,20 @@ export default async function Home() {
           </div>
         ))}
       </div>
-      <h2 className="text-2xl py-2">Latest Products</h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
-        {latestProducts.map((product) => (
+
+       */}
+
+      <h2 className="text-2xl py-2">Productos recientes</h2>
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        {latestProducts.map((product: any) => (
           <ProductItem key={product.slug} product={convertDocToObj(product)} />
+        ))}
+      </div>
+
+      <h2 className="text-2xl py-2">Productos Destacados</h2>
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        {featuredProducts.map((product: any) => (
+          <ProductItem key={product._id} product={convertDocToObj(product)} />
         ))}
       </div>
     </>

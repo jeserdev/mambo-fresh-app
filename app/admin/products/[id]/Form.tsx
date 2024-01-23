@@ -47,14 +47,33 @@ export default function ProductEditForm({ productId }: { productId: string }) {
     setValue('brand', product.brand)
     setValue('countInStock', product.countInStock)
     setValue('description', product.description)
+    setValue('isFeatured', product.isFeatured)
   }, [product, setValue])
 
   const formSubmit = async (formData: any) => {
+    console.log('Form data: ', formData) // Agrega esto para depurar
     await updateProduct(formData)
   }
 
   if (error) return error.message
   if (!product) return 'Loading...'
+
+  const FormInputCheckbox = ({
+    id,
+    name,
+  }: {
+    id: keyof Product
+    name: string
+  }) => (
+    <div className="md:flex mb-6">
+      <label className="label md:w-1/5" htmlFor={id}>
+        {name}
+      </label>
+      <div className="md:w-4/5">
+        <input type="checkbox" id={id} {...register(id)} className="checkbox" />
+      </div>
+    </div>
+  )
 
   const FormInput = ({
     id,
@@ -125,6 +144,7 @@ export default function ProductEditForm({ productId }: { productId: string }) {
       <h1 className="text-2xl py-4">Edit Product {formatId(productId)}</h1>
       <div>
         <form onSubmit={handleSubmit(formSubmit)}>
+          <FormInputCheckbox name="Featured" id="isFeatured" />
           <FormInput name="Name" id="name" required />
           <FormInput name="Slug" id="slug" required />
           <FormInput name="Image" id="image" required />
