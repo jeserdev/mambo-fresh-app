@@ -61,7 +61,7 @@ export default function OrderDetails({
   const { data, error } = useSWR(`/api/orders/${orderId}`)
 
   if (error) return error.message
-  if (!data) return 'Loading...'
+  if (!data) return 'Cargando...'
 
   const {
     paymentMethod,
@@ -79,11 +79,11 @@ export default function OrderDetails({
 
   return (
     <div>
-      <h1 className="text-2xl py-4">Order {orderId}</h1>
+      <h1 className="text-1 py-4">Orden de pedido {orderId}</h1>
       <div className="grid md:grid-cols-4 md:gap-5 my-4">
         <div className="md:col-span-3">
           <div className="card bg-base-300">
-            <div className="card-body">
+            <div className="rounded-lg p-2">
               <h2 className="card-title">Datos de entrega</h2>
               <p>{shippingAddress.fullName}</p>
               <p>
@@ -99,7 +99,7 @@ export default function OrderDetails({
           </div>
 
           <div className="card bg-base-300 mt-4">
-            <div className="card-body">
+            <div className="rounded-lg p-2">
               <h2 className="card-title">Método de pago</h2>
               <p>{paymentMethod}</p>
               {isPaid ? (
@@ -110,8 +110,8 @@ export default function OrderDetails({
             </div>
           </div>
 
-          <div className="card bg-base-300 mt-4">
-            <div className="card-body">
+          <div className="card bg-base-300 mt-4 mb-4">
+            <div className="rounded-lg p-2 ">
               <h2 className="card-title">Productos</h2>
               <table className="table">
                 <thead>
@@ -151,8 +151,8 @@ export default function OrderDetails({
         </div>
 
         <div>
-          <div className="card bg-base-300">
-            <div className="card-body">
+          <div className="rounded-lg p-2 bg-base-300">
+            <div className="rounded-lg">
               <h2 className="card-title">Detalle de orden</h2>
               <ul>
                 <li>
@@ -195,7 +195,7 @@ export default function OrderDetails({
                 {session?.user.isAdmin && (
                   <li>
                     <button
-                      className="btn w-full my-2"
+                      className="btn w-full bg-[#ED7400] text-[#F2E8D1] rounded-full border-none"
                       onClick={() => deliverOrder()}
                       disabled={isDelivering}
                     >
@@ -211,6 +211,12 @@ export default function OrderDetails({
           </div>
         </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   )
 }

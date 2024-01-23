@@ -26,11 +26,11 @@ export default function MyOrders() {
         <thead>
           <tr>
             <th>ID</th>
-            <th>DATE</th>
+            <th>FECHA</th>
             <th>TOTAL</th>
-            <th>PAID</th>
-            <th>DELIVERED</th>
-            <th>ACTION</th>
+            <th>ESTADO</th>
+            <th>ENTREGA</th>
+            <th>VER</th>
           </tr>
         </thead>
         <tbody>
@@ -38,20 +38,20 @@ export default function MyOrders() {
             <tr key={order._id}>
               <td>{order._id.substring(20, 24)}</td>
               <td>{order.createdAt.substring(0, 10)}</td>
-              <td>${order.totalPrice}</td>
+              <td>€{order.totalPrice}</td>
               <td>
                 {order.isPaid && order.paidAt
                   ? `${order.paidAt.substring(0, 10)}`
-                  : 'not paid'}
+                  : 'Sin pagar'}
               </td>
               <td>
                 {order.isDelivered && order.deliveredAt
                   ? `${order.deliveredAt.substring(0, 10)}`
-                  : 'not delivered'}
+                  : 'Sin Entregar'}
               </td>
               <td>
                 <Link href={`/order/${order._id}`} passHref>
-                  Details
+                  Detalles
                 </Link>
               </td>
             </tr>
