@@ -7,14 +7,17 @@ import { Rating } from './Rating'
 export default function ProductItem({ product }: { product: Product }) {
   return (
     <div className="card bg-base-300 shadow-xl mb-2 relative">
-      <figure>
+      <figure className="w-full">
+        {' '}
+        {/* Añadir la clase w-full aquí */}
         <Link href={`/product/${product.slug}`}>
           <Image
             src={product.image}
             alt={product.name}
-            width={200}
-            height={200}
-            className="object-cover h-40 w-full"
+            width={400}
+            height={400}
+            style={{ minHeight: '300px' }} // Estilos en línea para minHeight
+            className="w-full object-cover"
           />
         </Link>
       </figure>

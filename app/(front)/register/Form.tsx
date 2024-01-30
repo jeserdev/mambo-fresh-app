@@ -72,11 +72,11 @@ const Form = () => {
   return (
     <div className="max-w-sm  mx-auto card bg-base-300 my-4">
       <div className="card-body">
-        <h1 className="card-title">Register</h1>
+        <h1 className="card-title">Registrar Nuevo usuario</h1>
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="my-2">
             <label className="label" htmlFor="name">
-              Name
+              Nombre
             </label>
             <input
               type="text"
@@ -92,7 +92,7 @@ const Form = () => {
           </div>
           <div className="my-2">
             <label className="label" htmlFor="email">
-              Email
+              Correo
             </label>
             <input
               type="text"
@@ -112,7 +112,7 @@ const Form = () => {
           </div>
           <div className="my-2">
             <label className="label" htmlFor="password">
-              Password
+              Contraseña
             </label>
             <input
               type="password"
@@ -128,7 +128,7 @@ const Form = () => {
           </div>
           <div className="my-2">
             <label className="label" htmlFor="confirmPassword">
-              Confirm Password
+              Confirmar contraseña
             </label>
             <input
               type="password"
@@ -155,16 +155,16 @@ const Form = () => {
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>
               )}
-              Register
+              Registrarme
             </button>
           </div>
         </form>
 
         <div className="divider"> </div>
         <div>
-          Already have an account?{' '}
+          Ya tienes cuenta?{' '}
           <Link className="link" href={`/signin?callbackUrl=${callbackUrl}`}>
-            Login
+            Acceder
           </Link>
         </div>
       </div>

@@ -16,8 +16,8 @@ export const SearchBox = () => {
     <form action="/search" method="GET">
       <div className="flex flex-wrap w-full overflow-x-hidden gap-2">
           <input
-          className="flex-1 input input-bordered w-48 min-w-[100px]"
-          placeholder="producto.."
+          className="flex-1 input input-bordered w-58 min-w-[100px]"
+          placeholder="Escribe el nombre del producto.."
           defaultValue={q}
           name="q"
         />

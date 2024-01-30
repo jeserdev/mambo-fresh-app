@@ -81,7 +81,7 @@ const Form = () => {
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="my-2">
             <label className="label" htmlFor="name">
-              Name
+              Name1
             </label>
             <input
               type="text"

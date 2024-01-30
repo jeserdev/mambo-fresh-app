@@ -61,18 +61,26 @@ export default async function ProductDetails({
             </li>
 
             */}
-            <li> {product.brand}</li>
+            <li>
+              Variedad: <p>{product.brand}</p>
+            </li>
             <li>
               <div className="divider"></div>
             </li>
             <li>
               Origen: <p>{product.description}</p>
             </li>
+            <li>
+              <div className="divider"></div>
+            </li>
+            <li>
+              Descripción: <p>Contenido en caja 20Kg</p>
+            </li>
           </ul>
         </div>
 
         <br />
-        <div className="btn btn-outline btn-warning">
+        <div className="btn btn-outline btn-warning rounded-full">
           <Link href="/">Regresar a productos</Link>
         </div>
         <br />

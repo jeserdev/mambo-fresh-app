@@ -93,7 +93,7 @@ export default function CartDetails() {
                     <li>
                       <button
                         onClick={() => router.push('/shipping')}
-                        className="btn btn-primary w-full"
+                        className="btn btn-primary w-full rounded-full"
                       >
                         Procesar Pedido
                       </button>
