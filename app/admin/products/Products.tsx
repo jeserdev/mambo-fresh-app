@@ -56,14 +56,14 @@ export default function Products() {
   return (
     <div>
       <div className="flex justify-between items-center">
-        <h1 className="py-4 text-2xl">Products</h1>
+        <h1 className="py-4 text-2xl">Productos</h1>
         <button
           disabled={isCreating}
           onClick={() => createProduct()}
           className="btn btn-primary btn-sm"
         >
           {isCreating && <span className="loading loading-spinner"></span>}
-          Create
+          Agregar producto
         </button>
       </div>
 
@@ -72,12 +72,12 @@ export default function Products() {
           <thead>
             <tr>
               <th>id</th>
-              <th>name</th>
-              <th>price</th>
-              <th>category</th>
-              <th>count in stock</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Categoría</th>
+              <th>Inventario</th>
               <th>rating</th>
-              <th>actions</th>
+              <th>Accción</th>
               <th>Destacado</th>
             </tr>
           </thead>
@@ -96,7 +96,7 @@ export default function Products() {
                     type="button"
                     className="btn btn-ghost btn-sm"
                   >
-                    Edit
+                    Editar
                   </Link>
                   &nbsp;
                   <button
@@ -104,7 +104,7 @@ export default function Products() {
                     type="button"
                     className="btn btn-ghost btn-sm"
                   >
-                    Delete
+                    Borrar
                   </button>
                 </td>
 

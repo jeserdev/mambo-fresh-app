@@ -38,7 +38,7 @@ const AdminLayout = async ({
                 className={'orders' === activeItem ? 'active' : ''}
                 href="/admin/orders"
               >
-                Orders
+                Pedidos
               </Link>
             </li>
             <li>
@@ -46,7 +46,7 @@ const AdminLayout = async ({
                 className={'products' === activeItem ? 'active' : ''}
                 href="/admin/products"
               >
-                Products
+                Productos
               </Link>
             </li>
             <li>
@@ -54,7 +54,7 @@ const AdminLayout = async ({
                 className={'users' === activeItem ? 'active' : ''}
                 href="/admin/users"
               >
-                Users
+                Usuarios
               </Link>
             </li>
           </ul>

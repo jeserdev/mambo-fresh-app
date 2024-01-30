@@ -25,7 +25,7 @@ export default function ProductEditForm({ productId }: { productId: string }) {
       const data = await res.json()
       if (!res.ok) return toast.error(data.message)
 
-      toast.success('Product updated successfully')
+      toast.success('el Producto se ha actualizado')
       router.push('/admin/products')
     }
   )
@@ -56,7 +56,7 @@ export default function ProductEditForm({ productId }: { productId: string }) {
   }
 
   if (error) return error.message
-  if (!product) return 'Loading...'
+  if (!product) return 'Cargando...'
 
   const FormInputCheckbox = ({
     id,
@@ -141,16 +141,16 @@ export default function ProductEditForm({ productId }: { productId: string }) {
 
   return (
     <div>
-      <h1 className="text-2xl py-4">Edit Product {formatId(productId)}</h1>
+      <h1 className="text-2xl py-4">Producto {formatId(productId)}</h1>
       <div>
         <form onSubmit={handleSubmit(formSubmit)}>
-          <FormInputCheckbox name="Featured" id="isFeatured" />
-          <FormInput name="Name" id="name" required />
-          <FormInput name="Slug" id="slug" required />
+          <FormInputCheckbox name="Destar producto" id="isFeatured" />
+          <FormInput name="Nombre" id="name" required />
+          <FormInput name="Slug url" id="slug" required />
           <FormInput name="Image" id="image" required />
           <div className="md:flex mb-6">
             <label className="label md:w-1/5" htmlFor="imageFile">
-              Upload Image
+              Subir Imagen
             </label>
             <div className="md:w-4/5">
               <input
@@ -161,11 +161,11 @@ export default function ProductEditForm({ productId }: { productId: string }) {
               />
             </div>
           </div>
-          <FormInput name="Price" id="price" required />
-          <FormInput name="Category" id="category" required />
-          <FormInput name="Brand" id="brand" required />
-          <FormInput name="Description" id="description" required />
-          <FormInput name="Count In Stock" id="countInStock" required />
+          <FormInput name="Precio" id="price" required />
+          <FormInput name="Categoría" id="category" required />
+          <FormInput name="Variedad" id="brand" required />
+          <FormInput name="Origen" id="description" required />
+          <FormInput name="Inventario" id="countInStock" required />
 
           <button
             type="submit"
@@ -173,10 +173,10 @@ export default function ProductEditForm({ productId }: { productId: string }) {
             className="btn btn-primary"
           >
             {isUpdating && <span className="loading loading-spinner"></span>}
-            Update
+            Guardar
           </button>
           <Link className="btn ml-4 " href="/admin/products">
-            Cancel
+            Cancelar
           </Link>
         </form>
       </div>
