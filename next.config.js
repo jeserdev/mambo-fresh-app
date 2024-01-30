@@ -7,8 +7,8 @@ const nextConfig = {
         hostname: 'res.cloudinary.com', // if your website has no www, drop it
       },
       {
-        protocol: 'http',
-        hostname: 'localhost',
+        protocol: 'https',
+        hostname: 'https://mambo-fresh-app-v1.vercel.app',
       },
     ],
   },
